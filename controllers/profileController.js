@@ -57,12 +57,15 @@ const createNote = asyncHandler( async(req, res) => {
 
     const user = req.body.user
     const page = req.body.page
+    const reactPageID = req.body.reactPageID
     const reactID = req.body.reactID
     const note = req.body.note
 
     const newNote = await Note.create({
         user,
         page,
+        reactPageID,
+        reactID,
         note
     })
 
