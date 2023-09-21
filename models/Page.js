@@ -6,6 +6,10 @@ const PageSchema = mongoose.Schema({
         required: true,
         ref: 'User'
     },
+    reactID: {
+        type: String,
+        required: true
+    },
     topic: {
         type: String,
         required: [true, 'Please add a title for your board.']
