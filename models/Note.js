@@ -11,14 +11,6 @@ const NoteSchema = mongoose.Schema({
         required: true,
         ref: 'Page'
     },
-    reactPageID: {
-        type: String,
-        required: true
-    },
-    reactId: {
-        type: String,
-        required: true
-    },
     note: {
         type: String,
         required: [true, 'Please add a note.']

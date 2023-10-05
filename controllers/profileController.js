@@ -30,7 +30,6 @@ const getNotes = asyncHandler( async(req, res) => {
 const createPage = asyncHandler( async (req,res) => {
     const topic = req.body.page
     const user = req.body.user
-    const reactID = req.body.reactID
 
     if(!topic){
         res.status(400)
@@ -45,7 +44,6 @@ const createPage = asyncHandler( async (req,res) => {
 
     const page = await Page.create({
         user,
-        reactID,
         topic
     })
 
@@ -57,15 +55,11 @@ const createNote = asyncHandler( async(req, res) => {
 
     const user = req.body.user
     const page = req.body.page
-    const reactPageID = req.body.reactPageID
-    const reactID = req.body.reactID
     const note = req.body.note
 
     const newNote = await Note.create({
         user,
         page,
-        reactPageID,
-        reactID,
         note
     })
 
