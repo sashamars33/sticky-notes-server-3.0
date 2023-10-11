@@ -87,7 +87,7 @@ const checkedTask = asyncHandler( async(req, res) => {
         {_id: note._id},
         {checked: !checked}
     )
-    res.status(200).json(id)
+    res.status(200).json(updNote)
 })
 
 const selectPage = asyncHandler( async(req, res) => {
