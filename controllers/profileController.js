@@ -76,16 +76,18 @@ const deletePage = asyncHandler( async(req, res) => {
 const deleteNote = asyncHandler( async(req, res) => {
     const note = new mongoose.Types.ObjectId(req.params.id)
     await Note.deleteOne({_id: note})
+    res.status(200).json(note)
 })
 
 const checkedTask = asyncHandler( async(req, res) => {
     const id = new mongoose.Types.ObjectId(req.params.id)
     const note = await Note.findById({_id: id})
     const checked = note.checked
-    await Note.findOneAndUpdate(
+    const updNote = await Note.findOneAndUpdate(
         {_id: note._id},
         {checked: !checked}
     )
+    res.status(200).json(id)
 })
 
 const selectPage = asyncHandler( async(req, res) => {
